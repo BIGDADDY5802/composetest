@@ -1,3 +1,16 @@
+include:
+   - infra.yaml
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /codeinclude:
+   - infra.yaml
 services:
   web:
     build: .
@@ -8,5 +21,3 @@ services:
         - action: sync
           path: .
           target: /code
-  redis:
-    image: "redis:alpine"
